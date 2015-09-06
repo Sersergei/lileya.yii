@@ -36,7 +36,6 @@
 				array('label'=>'Категории', 'url'=>array('/admin/category')),
                 array('label'=>'Подкатегории', 'url'=>array('/admin/subcategory', )),
                 array('label'=>'Стили', 'url'=>array('/admin/style')),
-                array('label'=>'Размеры чашки', 'url'=>array('/admin/chashkasize',)),
                 array('label'=>'Размеры', 'url'=>array('/admin/volume')))),
                 array('label'=>'Товар', 'url'=>array('/admin/product')),
                 array('label'=>'Склад', 'url'=>array('/admin/sklad')),

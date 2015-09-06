@@ -17,9 +17,7 @@
 	<?php echo CHtml::encode($data->volume->name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('chashka_size_id')); ?>:</b>
-	<?php echo CHtml::encode($data->chashka_size->name); ?>
-	<br />
+
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('count_product')); ?>:</b>
 	<?php echo CHtml::encode($data->count_product); ?>

@@ -21,7 +21,6 @@ $this->menu=array(
 		'id',
 		'product_id',
 		'volume_id',
-		'chashka_size_id',
 		'count_product',
 	),
 )); ?>

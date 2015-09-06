@@ -7,7 +7,6 @@
  * @property integer $id
  * @property integer $product_id
  * @property integer $value_id
- * @property integer $chashka_value_id
  * @property integer $count_product
  */
 class Sklad extends CActiveRecord
@@ -28,11 +27,11 @@ class Sklad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('product_id, value_id, chashka_value_id, count_product', 'required'),
-			array('product_id, value_id, chashka_value_id, count_product', 'numerical', 'integerOnly'=>true),
+			array('product_id, value_id, count_product', 'required'),
+			array('product_id, value_id, count_product', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, product_id, value_id, chashka_value_id, count_product', 'safe', 'on'=>'search'),
+			array('id, product_id, value_id, count_product', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,7 +55,6 @@ class Sklad extends CActiveRecord
 			'id' => 'ID',
 			'product_id' => 'Product',
 			'value_id' => 'Size',
-			'chashka_value_id' => 'Chashka Size',
 			'count_product' => 'Count Product',
 		);
 	}
@@ -82,7 +80,6 @@ class Sklad extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('product_id',$this->product_id);
 		$criteria->compare('value_id',$this->value_id);
-		$criteria->compare('chashka_value_id',$this->chashka_value_id);
 		$criteria->compare('count_product',$this->count_product);
 
 		return new CActiveDataProvider($this, array(

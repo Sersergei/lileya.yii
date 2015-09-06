@@ -26,10 +26,7 @@
 		<?php echo $form->textField($model,'volume_id'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'chashka_size_id'); ?>
-		<?php echo $form->textField($model,'chashka_size_id'); ?>
-	</div>
+
 
 	<div class="row">
 		<?php echo $form->label($model,'count_product'); ?>

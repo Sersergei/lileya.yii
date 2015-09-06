@@ -31,11 +31,7 @@
 		<?php echo $form->error($model,'volume_id'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'chashka_size_id'); ?>
-		<?php echo $form->DropDownList($model,'chashka_size_id',ChashkaSize::all()); ?>
-		<?php echo $form->error($model,'chashka_size_id'); ?>
-	</div>
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'count_product'); ?>

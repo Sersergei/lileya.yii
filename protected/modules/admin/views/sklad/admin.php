@@ -42,7 +42,6 @@ $('.search-form form').submit(function(){
 		'id',
 		'product_id',
 		'volume_id',
-		'chashka_size_id',
 		'count_product',
 		array(
 			'class'=>'CButtonColumn',

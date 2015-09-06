@@ -7,7 +7,6 @@
  * @property integer $id
  * @property integer $product_id
  * @property integer $volume_id
- * @property integer $chashka_size_id
  * @property integer $count_product
  */
 class Sklad extends CActiveRecord
@@ -28,11 +27,11 @@ class Sklad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('product_id, volume_id, chashka_size_id, count_product', 'required'),
-			array('product_id, volume_id, chashka_size_id, count_product', 'numerical', 'integerOnly'=>true),
+			array('product_id, volume_id, count_product', 'required'),
+			array('product_id, volume_id, count_product', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, product_id, volume_id, chashka_size_id, count_product', 'safe', 'on'=>'search'),
+			array('id, product_id, volume_id, count_product', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,7 +45,6 @@ class Sklad extends CActiveRecord
 		return array(
         'product'=>array(self::BELONGS_TO,'Product','product_id'),
         'volume'=>array(self::BELONGS_TO,'Volume','volume_id'),
-        'chashka_size'=>array(self::BELONGS_TO,'ChashkaSize','chashka_size_id'),
 		);
 	}
 
@@ -59,7 +57,6 @@ class Sklad extends CActiveRecord
 			'id' => 'ID',
 			'product_id' => 'Продукт',
 			'volume_id' => 'Размер',
-			'chashka_size_id' => 'Чашка',
 			'count_product' => 'Количество',
 		);
 	}
@@ -85,7 +82,6 @@ class Sklad extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('product_id',$this->product_id);
 		$criteria->compare('volume_id',$this->volume_id);
-		$criteria->compare('chashka_size_id',$this->chashka_size_id);
 		$criteria->compare('count_product',$this->count_product);
 
 		return new CActiveDataProvider($this, array(
@@ -103,14 +99,12 @@ class Sklad extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-        public static function findPosition($product=NULL,$cashka=NULL,$volume=NULL){
+        public static function findPosition($product=NULL,$volume=NULL){
         $criteria= new CDbCriteria;
         if(!is_null($product)){
              $criteria->compare('product_id', $product);
         }
-        if(!is_null($cashka)){
-            $criteria->compare('chashka_size_id', $cashka);
-        }
+
         if(!is_null($volume)){
             $criteria->compare('volume_id', $volume);
         }
