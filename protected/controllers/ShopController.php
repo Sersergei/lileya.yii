@@ -9,13 +9,11 @@ class ShopController extends Controller
 	}
     public function actionProduct($id){
         $models=Product::model()->findByPk($id);
-        $chashka=array();
         $volume=array();
         foreach($models->sklad as $sklad){
-            $chashka[$sklad->chashka_size->id] = $sklad->chashka_size->name;
             $volume[$sklad->volume->id] = $sklad->volume->name;
         }
-        $this->render('show',array('models'=>$models,'chashka'=>$chashka,'volume'=>$volume));
+        $this->render('show',array('models'=>$models,'volume'=>$volume));
     }
 
     

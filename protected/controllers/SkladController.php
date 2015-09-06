@@ -172,7 +172,7 @@ class SkladController extends Controller
 	}
     public function actionChangeValume(){
   
-                $sklad=Sklad::findPosition($_POST['produt'],$_POST['chashka']);
+                $sklad=Sklad::findPosition($_POST['produt']);
                  foreach($sklad as $value)  {
                         echo CHtml::tag
                                ('option', array('value'=>$value->id),$value->volume->name,true);

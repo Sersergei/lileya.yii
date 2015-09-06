@@ -1,7 +1,6 @@
 
 <?php
 /* @var $this SiteController */
-
 $this->pageTitle=Yii::app()->name;
 Yii::app()->clientScript
   ->registerPackage('jquery')
@@ -32,7 +31,6 @@ $("img.jqzoom").jqueryzoom({
 	   </p>
        <?php $this->renderPartial('/shop/addToCart', array(
 			'models' => $models,
-            'chashka'=>$chashka,
             'volume'=>$volume)); ?>
        
  <a href="#">Таблиця розмірів</a> 
