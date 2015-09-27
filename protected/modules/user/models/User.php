@@ -9,6 +9,7 @@ class User extends CActiveRecord
 	//TODO: Delete for next version (backward compatibility)
 	const STATUS_BANED=-1;
 	public $pass;
+	public $flash;
 
 	/**
 	 * The followings are the available columns in table 'users':
@@ -225,7 +226,10 @@ class User extends CActiveRecord
 
 	public function beforeSave(){
 		parent::beforeSave();
-		if($this->isNewRecord) {$this->getPassword();}
+		if($this->isNewRecord) {$this->getPassword();
+		$this->flash='Также можете воспользоваться личным кабинетом, где можно отследить статус Вашего заказа и историю своих покупок.
+    Пароль личного кабинета:'.$this->pass;
+		}
 		return true;
 	}
 }

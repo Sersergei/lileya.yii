@@ -28,10 +28,11 @@ class Zakaz extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, status_id, dostavka_id, oplata_id', 'required'),
+			array('user_id', 'required'),
 			array('user_id, status_id, dostavka_id, oplata_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
+			array('status_id, dostavka_id, oplata_id', 'default', 'value' => '0', 'setOnEmpty' => true, 'on' => 'insert'),
 			array('id, user_id, status_id, dostavka_id, oplata_id', 'safe', 'on'=>'search'),
 		);
 	}

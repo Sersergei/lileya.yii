@@ -144,24 +144,34 @@ class ZakazController extends Controller
 	}
     public function actionPred(){
 		$model= new User();
-		if(isset($_POST['User'])) {
+		if(isset($_POST['User'])) {//введены ли данные в форму
 			$model->attributes = $_POST['User'];
-			$user=User::model()->find(array(
+			$user=User::model()->find(array(//проверяем если есть такая запись
 				'condition'=>'email=:email',
 				'params'=>array(':email'=>$model->email),
 			));
-			if(isset ($user)){
+			if(isset ($user)){//если есть запись редактируем для изменения
 				$user->phone=$model->phone;
 				$user->username=$model->username;
 				$model=$user;
 			}
 
-			if ($model->validate()) {
-				if ($model->save()) {
-						$this->render('zakaz', array('model' => $model,));
+			if ($model->validate()) {//валидация
+				if ($model->save()) {//сохранение пользователя
+					$zakaz= new Zakaz;
+					$zakaz->user_id=$model->id;
+					if($zakaz->validate()) {
+						if ($zakaz->save()) {
+
+							$this->render('zakaz', array('zakaz' => $zakaz, 'user' => $model));
+						}
+					}
+					else{
+						var_dump($zakaz);
+					}
 					}
 				else{
-					$this->render('zakaz', array('model' => $model,));
+
 				}
 				} else {
 					$this->render('index', array(
