@@ -143,7 +143,7 @@ class ZakazController extends Controller
 		));
 	}
     public function actionPred(){
-		var_dump($_POST);
+		
         $this->render('index' );
     }
 
