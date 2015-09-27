@@ -143,9 +143,39 @@ class ZakazController extends Controller
 		));
 	}
     public function actionPred(){
-		
-        $this->render('index' );
-    }
+		$model= new User();
+		if(isset($_POST['User'])) {
+			$model->attributes = $_POST['User'];
+			$user=User::model()->find(array(
+				'condition'=>'email=:email',
+				'params'=>array(':email'=>$model->email),
+			));
+			if(isset ($user)){
+				$user->phone=$model->phone;
+				$user->username=$model->username;
+				$model=$user;
+			}
+
+			if ($model->validate()) {
+				if ($model->save()) {
+						$this->render('zakaz', array('model' => $model,));
+					}
+				else{
+					$this->render('zakaz', array('model' => $model,));
+				}
+				} else {
+					$this->render('index', array(
+						'model' => $model,
+					));
+				}
+
+			} else {
+
+				$this->render('index', array(
+					'model' => $model,
+				));
+			}
+		}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

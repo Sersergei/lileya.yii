@@ -8,7 +8,8 @@ class User extends CActiveRecord
 	
 	//TODO: Delete for next version (backward compatibility)
 	const STATUS_BANED=-1;
-	
+	public $pass;
+
 	/**
 	 * The followings are the available columns in table 'users':
 	 * @var integer $id
@@ -63,10 +64,9 @@ class User extends CActiveRecord
 			array('superuser, status', 'numerical', 'integerOnly'=>true),
 			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status', 'safe', 'on'=>'search'),
 		):((Yii::app()->user->id==$this->id)?array(
-			array('username, email', 'required'),
+			array('username, email, phone', 'required'),
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
 			array('email', 'email'),
-			array('username', 'unique', 'message' => UserModule::t("This user's name already exists.")),
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => UserModule::t("Incorrect symbols (A-z0-9).")),
 			array('email', 'unique', 'message' => UserModule::t("This user's email address already exists.")),
 		):array()));
@@ -90,7 +90,7 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => UserModule::t("Id"),
-			'username'=>UserModule::t("username"),
+			'username'=>UserModule::t("Фамилия Имя"),
 			'password'=>UserModule::t("password"),
 			'verifyPassword'=>UserModule::t("Retype Password"),
 			'email'=>UserModule::t("E-mail"),
@@ -98,7 +98,7 @@ class User extends CActiveRecord
 			'activkey' => UserModule::t("activation key"),
 			'createtime' => UserModule::t("Registration date"),
 			'create_at' => UserModule::t("Registration date"),
-			
+			'phone'=>UserModule::t("Телефон"),
 			'lastvisit_at' => UserModule::t("Last visit"),
 			'superuser' => UserModule::t("Superuser"),
 			'status' => UserModule::t("Status"),
@@ -166,6 +166,7 @@ class User extends CActiveRecord
         $criteria->compare('id',$this->id);
         $criteria->compare('username',$this->username,true);
         $criteria->compare('password',$this->password);
+		$criteria->compare('phone',$this->phone);
         $criteria->compare('email',$this->email,true);
         $criteria->compare('activkey',$this->activkey);
         $criteria->compare('create_at',$this->create_at);
@@ -196,4 +197,35 @@ class User extends CActiveRecord
     public function setLastvisit($value) {
         $this->lastvisit_at=date('Y-m-d H:i:s',$value);
     }
+	private function getPassword(){
+		$arr = array('a','b','c','d','e','f',
+			'g','h','i','j','k','l',
+			'm','n','o','p','r','s',
+			't','u','v','x','y','z',
+			'A','B','C','D','E','F',
+			'G','H','I','J','K','L',
+			'M','N','O','P','R','S',
+			'T','U','V','X','Y','Z',
+			'1','2','3','4','5','6',
+			'7','8','9','0','!','?',
+			'&','^','%','@','*','$',
+			'+','-');
+		// Генерируем пароль
+		$pass = "";
+		for($i = 0; $i < 5; $i++)
+		{
+			// Вычисляем случайный индекс массива
+			$index = rand(0, count($arr) - 1);
+			$pass .= $arr[$index];
+		}
+		$this->password=md5($pass);
+		$this->pass=$pass;
+
+	}
+
+	public function beforeSave(){
+		parent::beforeSave();
+		if($this->isNewRecord) {$this->getPassword();}
+		return true;
+	}
 }
