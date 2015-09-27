@@ -162,6 +162,7 @@ class ZakazController extends Controller
 					$zakaz->user_id=$model->id;
 					if($zakaz->validate()) {
 						if ($zakaz->save()) {
+							$this->save_sklad_zakaz($zakaz->id);
 
 							$this->render('zakaz', array('zakaz' => $zakaz, 'user' => $model));
 						}
@@ -212,6 +213,19 @@ class ZakazController extends Controller
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
+		}
+	}
+	protected function save_sklad_zakaz($zakaz_id){
+		$products=Shop::GetCartContent();
+		foreach($products as $product){
+			$zakaz =new ZakazSklad;
+			var_dump($product);
+			$zakaz->sklad_id=$product['sklad'];
+			$zakaz->zakaz_id=$zakaz_id;
+			$zakaz->count_zakaz=$product['count'];
+			$zakaz->save();
+			$cart = Shop::getCartContent();
+			unset($cart[$product['sklad']]);
 		}
 	}
 }
