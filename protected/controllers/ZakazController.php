@@ -28,7 +28,7 @@ class ZakazController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','pred'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -142,6 +142,10 @@ class ZakazController extends Controller
 			'model'=>$model,
 		));
 	}
+    public function actionPred(){
+		var_dump($_POST);
+        $this->render('index' );
+    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
