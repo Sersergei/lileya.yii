@@ -40,6 +40,7 @@ class ShoppingCartController extends Controller
 		$this->redirect(array('//shoppingcart/view'));
         
     }
+
     
 }
 ?>

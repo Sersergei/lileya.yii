@@ -101,4 +101,16 @@ class Zakaz extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	public function addZakaz($user){
+		$event=new NewZakazEvent($this);
+		$event->zakaz=$this;
+		$event->user=$user;
+		$this->onNewZakaz($event);//апускаем событие сохранения заказа
+		return $event->isValid;
+	}
+	public function onNewZakaz($event){
+		$this->raiseEvent('onNewZakaz',$event);
+
+	}
+
 }

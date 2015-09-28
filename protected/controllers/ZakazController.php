@@ -161,19 +161,20 @@ class ZakazController extends Controller
 					$zakaz= new Zakaz;
 					$zakaz->user_id=$model->id;
 					if($zakaz->validate()) {
+
 						if ($zakaz->save()) {
+							$notifier=new Notifier();
+							$zakaz->onNewZakaz=array($notifier,'zakaz');
+							$zakaz->addZakaz($model);
 							$this->save_sklad_zakaz($zakaz->id);
+
 
 							$this->render('zakaz', array('zakaz' => $zakaz, 'user' => $model));
 						}
 					}
-					else{
-						var_dump($zakaz);
-					}
-					}
-				else{
 
-				}
+					}
+
 				} else {
 					$this->render('index', array(
 						'model' => $model,
@@ -219,13 +220,12 @@ class ZakazController extends Controller
 		$products=Shop::GetCartContent();
 		foreach($products as $product){
 			$zakaz =new ZakazSklad;
-			var_dump($product);
 			$zakaz->sklad_id=$product['sklad'];
 			$zakaz->zakaz_id=$zakaz_id;
 			$zakaz->count_zakaz=$product['count'];
 			$zakaz->save();
-			$cart = Shop::getCartContent();
-			unset($cart[$product['sklad']]);
+
 		}
+		Shop::setCartcontent(NULL);
 	}
 }
