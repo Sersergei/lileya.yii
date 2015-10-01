@@ -364,7 +364,8 @@ height: 250px;
 
 }
 .errorMessage{
-    color: red;
+    color: coral;
+    font-size: 11px;
 }
 .row{
     clear:both;
@@ -378,4 +379,10 @@ label {
 }
 .main {
     float: left;
+}
+#User_email, #User_phone, #User_username {
+    width:  300px;
+    border:1px solid #999;
+    font-size:16px;
+    font-family: Tahoma;
 }
