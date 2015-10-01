@@ -11,11 +11,19 @@
     <?php echo $form->textField($model,'email'); ?>
     <?php echo $form->error($model,'email'); ?>
 </div>
-<div class="row">
-    <?php echo $form->labelEx($model,'phone'); ?>
-    <?php echo $form->textField($model,'phone'); ?>
-    <?php echo $form->error($model,'phone'); ?>
-</div>
+    <div class="row">
+        <?php echo $form->labelEx($model,'phone'); ?>
+        <?php
+        $this->widget('CMaskedTextField', array(
+            'model' => $model,
+            'attribute' => 'phone',
+            'mask' => '+3-999-999-9999',
+            'placeholder' => '*',
+            'completed' => 'function(){console.log("ok");}',
+        ));
+        ?>
+        <?php echo $form->error($model,'phone'); ?>
+    </div>
 
 
 <div class="row">
