@@ -1,3 +1,4 @@
+<div class="main">
 <?php $form=$this->beginWidget('CActiveForm', array(
     'id'=>'zakaz-form',
     'enableClientValidation'=>true,
@@ -27,3 +28,4 @@
 </div>
 
 <?php $this->endWidget(); ?>
+</div>
