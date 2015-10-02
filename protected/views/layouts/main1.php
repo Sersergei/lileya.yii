@@ -24,7 +24,7 @@
         <!-- End 5 columns Item -->
      <li><a href="<?php echo Yii::app()->createUrl('shop/index',array('nav'=>'nignya_bіlizna')) ?>" class="drop">Нижня білизна</a><!-- Begin 4 columns Item -->
          
-            <div class="dropdown_4columns"><!-- Begin 4 columns container -->
+          <!--  <div class="dropdown_4columns">
                 <div class="col_1">
                  
                     <h3><a href="#">Комплекти</a></h3>
@@ -79,11 +79,11 @@
                       
                 </div>
                  
-            </div><!-- End 4 columns container -->
+            </div> End 4 columns container -->
          
         </li>
     	
-    	
+
     	
     	
     	
@@ -91,7 +91,7 @@
     	
     		<li class="menu_right"><a href="<?php echo Yii::app()->createUrl('shop/index',array('id'=>'odyag_dlya_snu')) ?>" class="drop">Одяг для сну</a>
          
-            <div class="dropdown_1column align_right">
+           <!-- <div class="dropdown_1column align_right">
              
                     <div class="col_1">
                      
@@ -105,7 +105,7 @@
                           
                     </div>
                      
-            </div>
+            </div> -->
              
         </li>
     	
@@ -113,7 +113,7 @@
     	
     
     		<li class="menu_right"><a href="{{path('ShopLileyaBundle_product',{ 'category': 'kupalniki' })}}" class="drop">Купальники</a>
-         
+         <!--
             <div class="dropdown_1column align_right">
              
                     <div class="col_1">
@@ -130,7 +130,7 @@
                     </div>
                      
             </div>
-             
+             -->
         </li>	
     	
     	
@@ -139,8 +139,8 @@
     	
     	
     	<li><a href="{{path('ShopLileyaBundle_product',{ 'category': 'Іgrovі_kostyumi' })}}" class="drop">Ігрові костюми</a><!-- Begin 4 columns Item -->
-         
-            <div class="dropdown_4columns"><!-- Begin 4 columns container -->
+         <!--
+            <div class="dropdown_4columns"> Begin 4 columns container
              
                 <div class="col_4">
                     <h2>This is a heading title</h2>
@@ -198,7 +198,7 @@
                       
                 </div>
                  
-            </div><!-- End 4 columns container -->
+            </div> End 4 columns container -->
          
         </li>
      

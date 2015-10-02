@@ -386,3 +386,6 @@ label {
     font-size:16px;
     font-family: Tahoma;
 }
+.form{
+    float: left;
+}
