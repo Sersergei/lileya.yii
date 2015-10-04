@@ -68,7 +68,7 @@ class User extends CActiveRecord
 			array('username, email, phone', 'required'),
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
 			array('email', 'email'),
-			array('phone','match','pattern' => '/^((\+?7)(-?\d{3})-?)?(\d{3})(-?\d{4})$/','message' => 'Некорректный формат поля {attribute}'),
+			array('phone','match','pattern' => '/^((\+?3)(-?\d{3})-?)?(\d{3})(-?\d{4})$/','message' => 'Некорректный формат поля {attribute}'),
 			array('username', 'match', 'pattern' => '/^[А-яа-я ]+$/u','message' => UserModule::t("Incorrect symbols (А-я).")),
 			array('email', 'unique', 'message' => UserModule::t("This user's email address already exists.")),
 		):array()));
