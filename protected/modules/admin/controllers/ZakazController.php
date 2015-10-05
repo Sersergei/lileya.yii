@@ -1,12 +1,12 @@
 <?php
 
-class CategoryController extends Controller
+class ZakazController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-//	public $layout='//layouts/column2';
+	//public $layout='//layouts/column1';
 
 	/**
 	 * @return array action filters
@@ -15,7 +15,7 @@ class CategoryController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			 // we only allow deletion via POST request
 		);
 	}
 
@@ -59,14 +59,14 @@ class CategoryController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Category;
+		$model=new Zakaz;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Category']))
+		if(isset($_POST['Zakaz']))
 		{
-			$model->attributes=$_POST['Category'];
+			$model->attributes=$_POST['Zakaz'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -88,9 +88,9 @@ class CategoryController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Category']))
+		if(isset($_POST['Zakaz']))
 		{
-			$model->attributes=$_POST['Category'];
+			$model->attributes=$_POST['Zakaz'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -119,7 +119,7 @@ class CategoryController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Category');
+		$dataProvider=new CActiveDataProvider('Zakaz');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -130,10 +130,10 @@ class CategoryController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Category('search');
+		$model=new Zakaz('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Category']))
-			$model->attributes=$_GET['Category'];
+		if(isset($_GET['Zakaz']))
+			$model->attributes=$_GET['Zakaz'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -144,12 +144,12 @@ class CategoryController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Category the loaded model
+	 * @return Zakaz the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Category::model()->findByPk($id);
+		$model=Zakaz::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -157,11 +157,11 @@ class CategoryController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Category $model the model to be validated
+	 * @param Zakaz $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='category-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='zakaz-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

@@ -7,7 +7,7 @@
  */
 class UserLogin extends CFormModel
 {
-	public $username;
+	public $email;
 	public $password;
 	public $rememberMe;
 
@@ -20,7 +20,7 @@ class UserLogin extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
+			array('email, password', 'required'),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
@@ -35,7 +35,7 @@ class UserLogin extends CFormModel
 	{
 		return array(
 			'rememberMe'=>UserModule::t("Remember me next time"),
-			'username'=>UserModule::t("username or email"),
+			'email'=>UserModule::t("username or email"),
 			'password'=>UserModule::t("password"),
 		);
 	}
@@ -48,7 +48,7 @@ class UserLogin extends CFormModel
 	{
 		if(!$this->hasErrors())  // we only want to authenticate when no input errors
 		{
-			$identity=new UserIdentity($this->username,$this->password);
+			$identity=new UserIdentity($this->email,$this->password);
 			$identity->authenticate();
 			switch($identity->errorCode)
 			{
@@ -57,7 +57,7 @@ class UserLogin extends CFormModel
 					Yii::app()->user->login($identity,$duration);
 					break;
 				case UserIdentity::ERROR_EMAIL_INVALID:
-					$this->addError("username",UserModule::t("Email is incorrect."));
+					$this->addError("email",UserModule::t("Email is incorrect."));
 					break;
 				case UserIdentity::ERROR_USERNAME_INVALID:
 					$this->addError("username",UserModule::t("Username is incorrect."));

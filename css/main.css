@@ -253,7 +253,7 @@ div.search-form
     background-image: linear-gradient(bottom, #EFF4FA 0%,#6399cd 100%);
     float: left;
     position: relative;
-    width: 20%;    
+    width: 16%;
 }
 
 #nav li:first-child, #nav li:first-child a { 
