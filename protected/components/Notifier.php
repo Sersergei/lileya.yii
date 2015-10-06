@@ -1,18 +1,18 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Сергей
+ * User: РЎРµСЂРіРµР№
  * Date: 28.09.2015
  * Time: 15:30
  */
 class Notifier{
     function zakaz($event){
-        $text="Здравствуйте,".$event->user->username.".Спасибо, что выбрали Наш интернет-магазин Nizna-Lileya.com.ua.
-    Ваш заказ №".$event-> zakaz->id." принят в обработку.
-    В течение дня Мы с Вами свяжемся и договоримся о способе доставки товара.".$event->user->flash;
-    mail($event->user->email,"Новый заказ ",$text);
-        $text="В твоем магазине новый заказ№".$event-> zakaz->id.
-            "Заказал".$event->user->username."вяжись с ним по тедефону".$event->user->phone;
-      mail('kuzmenko.kseniya@gmail.com',"Новый заказ ",$text);
+        $text="Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ, ".$event->user->username.". РЎРїР°СЃРёР±Рѕ, С‡С‚Рѕ РІС‹Р±СЂР°Р»Рё РќР°С€ РёРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅ http://nizna-lileya.esy.es.
+    Р’Р°С€ Р·Р°РєР°Р· в„– ".$event-> zakaz->id." РїСЂРёРЅСЏС‚ РІ РѕР±СЂР°Р±РѕС‚РєСѓ.
+    Р’ С‚РµС‡РµРЅРёРµ РґРЅСЏ РњС‹ СЃ Р’Р°РјРё СЃРІСЏР¶РµРјСЃСЏ Рё РґРѕРіРѕРІРѕСЂРёРјСЃСЏ Рѕ СЃРїРѕСЃРѕР±Рµ РґРѕСЃС‚Р°РІРєРё С‚РѕРІР°СЂР°. ".$event->user->flash;
+    mail($event->user->email,"РќРѕРІС‹Р№ Р·Р°РєР°Р· ",$text);
+        $text="Р’ С‚РІРѕРµРј РјР°РіР°Р·РёРЅРµ РЅРѕРІС‹Р№ Р·Р°РєР°Р· в„– ".$event-> zakaz->id.
+            "Р—Р°РєР°Р·Р°Р» ".$event->user->username." РІСЏР¶РёСЃСЊ СЃ РЅРёРј РїРѕ С‚РµРґРµС„РѕРЅСѓ ".$event->user->phone;
+      mail('kuzmenko.kseniya@gmail.com',"РќРѕРІС‹Р№ Р·Р°РєР°Р· ",$text);
     }
 }
