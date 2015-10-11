@@ -22,7 +22,7 @@
         </li><!-- End Home Item -->
      
         <!-- End 5 columns Item -->
-     <li><a href="<?php echo Yii::app()->createUrl('shop/index',array('nav_category'=>'nignya_bіlizna')) ?>" class="drop">Нижня білизна</a><!-- Begin 4 columns Item -->
+     <li><a href="<?php echo Yii::app()->createUrl('shop',array('category'=>'nignya_bіlizna')) ?>" class="drop">Нижня білизна</a><!-- Begin 4 columns Item -->
          
             <div class="dropdown_4columns"><!-- Begin 4 columns container -->
                 <div class="col_1">
@@ -89,7 +89,7 @@
     	
     	
     	
-    		<li class="menu_right"><a href="<?php echo Yii::app()->createUrl('shop/index',array('nav_category'=>'odyag_dlya_snu')) ?>" class="drop">Одяг для сну</a>
+    		<li class="menu_right"><a href="<?php echo Yii::app()->createUrl('shop',array('category'=>'odyag_dlya_snu')) ?>" class="drop">Одяг для сну</a>
          
             <div class="dropdown_1column align_right">
              
