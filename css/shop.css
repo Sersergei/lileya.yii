@@ -69,6 +69,9 @@ text-decoration: none;
 font-size: 16px;
 color:#81739F;
 text-decoration: none; }
+.btn-add-cart{
+    border-radius: 5px; color: white; background: #74004F; font-size: 105%;
+}
 button{border-radius: 5px; color: white; background: #74004F; font-size: 105%; }
 span{ font-size: 16px; font-weight: bold; color:#2a1c48;}
 #clear{
@@ -388,4 +391,7 @@ label {
 }
 .form{
     float: left;
+}
+#inputsize{
+    width: 30px;
 }

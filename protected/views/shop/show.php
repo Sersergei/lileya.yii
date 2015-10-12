@@ -1,6 +1,9 @@
 
 <?php
 /* @var $this SiteController */
+$this->breadcrumbs=array(
+    $models->category->name=>array('shop/'.$models->category->nav),
+);
 $this->pageTitle=Yii::app()->name;
 Yii::app()->clientScript
   ->registerPackage('jquery')
@@ -37,8 +40,7 @@ $("img.jqzoom").jqueryzoom({
  </div>
 <div class="clear"> </div>
 <div id="comentarii">
-                <h3>Коментар</h3>
-                <h3>Додати коментар</h3>        
+
 </div>
 
             
