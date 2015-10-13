@@ -18,7 +18,7 @@ Yii::app()->clientScript
 <ul class="bxslider">
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/3.jpg" /> <p>fjghrfjghkjfhgjkshj</p></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/1.jpg" /><p>Только сегодня при  заказе 3-х доставка на халяву</p></li>
-  <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/2.jpg" /></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/2.jpg" /></li>
   
 </ul>
     <p>Мы собираемся включить весь наш HTML в элемент div с классом “pp_gallery”. Код будет состоять из элементов div индикатора загрузки и навигации, которая появляется  только при просмотре полноразмерного изображения, а также основного контейнера для миниатюр.

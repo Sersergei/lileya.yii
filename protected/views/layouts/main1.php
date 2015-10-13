@@ -209,9 +209,9 @@
              'links'=>$this->breadcrumbs,
          )); ?><!-- breadcrumbs -->
      <?php endif?>
-       <div id = "content">
+
        		<?php echo $content; ?>
-	   </div>
+
 	    <div id="clear">
  
                         </div>
