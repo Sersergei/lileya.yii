@@ -12,11 +12,11 @@
 <body>
  <div id = "wrapper">
     <div id = "header">
-    <?php  $this->widget('application.extensions.hello.HelloWidget'); ?>
+       <a href="/"> <img src="/images/header4.jpg"></a>
     </div>
        <ul id="menu">
          
-        <li><a href="/site/index" class="drop">Головна</a><!-- Begin Home Item -->
+        <li><a href="/" class="drop">Головна</a><!-- Begin Home Item -->
          
          
         </li><!-- End Home Item -->
