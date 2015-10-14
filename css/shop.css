@@ -121,6 +121,7 @@ height: 250px;
     -moz-box-shadow:inset 0px 0px 1px #F9CCF9;
     -webkit-box-shadow:inset 0px 0px 1px #F9CCF9;
     box-shadow:inset 0px 0px 1px #edf9ff;
+
 }
 
 #menu li {
@@ -187,7 +188,7 @@ height: 250px;
     background:#F4F4F4;
     background: -moz-linear-gradient(top, #EEEEEE, #FCFCFC);
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EEEEEE), to(#FCFCFC));
-
+    z-index: 3000;
     /* Rounded Corners */
     /* -moz-border-radius: 0px 5px 5px 5px;*/
    /*  -webkit-border-radius: 0px 5px 5px 5px;*/
