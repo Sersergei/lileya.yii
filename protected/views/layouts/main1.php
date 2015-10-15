@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html ; charset=utf-8"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style1.css" media="screen, projection">
+
      <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/shop.css" media="screen, projection">
    
  
@@ -12,7 +12,8 @@
 <body>
  <div id = "wrapper">
     <div id = "header">
-       <a href="/"> <img src="/images/header4.jpg"></a>
+      <div id="header_logo"> <a href="/"> <img src="/images/header4.jpg"></a></div>
+    <?php  $this->widget('application.extensions.hello.HelloWidget'); ?>
     </div>
        <ul id="menu">
          

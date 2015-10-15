@@ -16,7 +16,8 @@ box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 }
 
 #header{
-height: 75px;
+    position: relative;
+    height: 75px;
 
 }
 
@@ -73,6 +74,9 @@ button{border-radius: 5px; color: white; background: #74004F; font-size: 105%; }
 span{ font-size: 16px; font-weight: bold; color:#2a1c48;}
 #clear{
  clear:both;
+}
+.btn-add-cart{
+    border-radius: 5px; color: white; background: #74004F; font-size: 105%;
 }
 
 #footer{
@@ -146,9 +150,9 @@ height: 250px;
 
     /* Rounded corners */
 
-    -moz-border-radius: 5px 5px 0px 0px;
-    -webkit-border-radius: 5px 5px 0px 0px;
-    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 #menu li a {
@@ -175,14 +179,14 @@ height: 250px;
 .dropdown_3columns,
 .dropdown_4columns,
 .dropdown_5columns {
-    margin:4px auto;
+
     float:left;
     position:absolute;
     left:-999em; /* Hides the drop down */
     text-align:left;
     padding:10px 5px 10px 5px;
     border:1px solid #777777;
-    border-top:none;
+    border-top:1px;
 
     /* Gradient background */
     background:#F4F4F4;
@@ -197,7 +201,7 @@ height: 250px;
 
 
 .dropdown_1column {width: 250px;}
-.dropdown_2columns {width: 280px;}
+.dropdown_2columns {width: 140px;}
 .dropdown_3columns {width: 420px;}
 .dropdown_4columns {width: 560px;}
 .dropdown_5columns {width: 700px;}
@@ -362,8 +366,12 @@ height: 250px;
     margin:0px 0px 4px 0px;
 }
 #shopping-cart{
-    float: right;
-
+    position:absolute;
+    right: 0px;
+}
+#header_logo{
+    position: absolute;
+    left: 0px;
 }
 .errorMessage{
     color: coral;
@@ -391,6 +399,10 @@ label {
 .form{
     float: left;
 }
-.fotoslide{
-    width: 270px;
+#inputsize{
+    width: 35px;
+}
+.flash-success{
+    color: red;
+    font-size: 25px;
 }
