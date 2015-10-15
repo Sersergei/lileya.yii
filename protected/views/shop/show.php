@@ -23,7 +23,10 @@ $("img.jqzoom").jqueryzoom({
     </div>
 <?php endif; ?>
 
-	<div id="fotoslide"><span class="tozoom"><img src="<?php echo Yii::app()->request->baseUrl.'/images/'.$models->image; ?>" class="jqzoom" alt="<?php echo Yii::app()->request->baseUrl.'/images/'.$models->image; ?>" class="large" /></span></div>
+	<div id="fotoslide"><span class="tozoom">
+            <img src="<?php echo Yii::app()->request->baseUrl.'/images/'.$models->image; ?>"
+                 class="jqzoom" alt="<?php echo Yii::app()->request->baseUrl.'/images/'.$models->image; ?>"
+                 class="large" /></span></div>
 	<div id="describe"> 
 	<h3><?php echo $models->title;?></h3>
 	<p><strong>Cтиль:</strong> <?php echo $models->style->name;?><br/>
@@ -32,13 +35,12 @@ $("img.jqzoom").jqueryzoom({
        <?php $this->renderPartial('/shop/addToCart', array(
 			'models' => $models,
             'volume'=>$volume)); ?>
-       
+
  <a href="#">Таблиця розмірів</a> 
  </div>
 <div class="clear"> </div>
 <div id="comentarii">
-                <h3>Коментар</h3>
-                <h3>Додати коментар</h3>        
+
 </div>
 
             
