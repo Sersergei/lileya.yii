@@ -12,11 +12,12 @@
 <body>
  <div id = "wrapper">
     <div id = "header">
+        <a href="/"> <img src="/images/header4.jpg"></a>
     <?php  $this->widget('application.extensions.hello.HelloWidget'); ?>
     </div>
        <ul id="menu">
          
-        <li><a href="/site/index" class="drop">Головна</a><!-- Begin Home Item -->
+        <li><a href="/" class="drop">Головна</a><!-- Begin Home Item -->
          
          
         </li><!-- End Home Item -->
@@ -204,10 +205,14 @@
      
      
     </ul>
+     <?php if(isset($this->breadcrumbs)):?>
+         <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+             'links'=>$this->breadcrumbs,
+         )); ?><!-- breadcrumbs -->
+     <?php endif?>
 
-       <div id = "content">
        		<?php echo $content; ?>
-	   </div>
+
 	    <div id="clear">
  
                         </div>
