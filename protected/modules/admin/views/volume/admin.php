@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Просмотреть все', 'url'=>array('index')),
-	array('label'=>'Создать', 'url'=>array('create')),
+	array('label'=>'РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ', 'url'=>array('index')),
+	array('label'=>'РЎРѕР·РґР°С‚СЊ', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Менеджер размера</h1>
+<h1>РњРµРЅРµРґР¶РµСЂ СЂР°Р·РјРµСЂР°</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

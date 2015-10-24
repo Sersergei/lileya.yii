@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Посмотреть все', 'url'=>array('index')),
-	array('label'=>'Менеджер', 'url'=>array('admin')),
+	array('label'=>'РџРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ', 'url'=>array('index')),
+	array('label'=>'РњРµРЅРµРґР¶РµСЂ', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Создать размер</h1>
+<h1>РЎРѕР·РґР°С‚СЊ СЂР°Р·РјРµСЂ</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

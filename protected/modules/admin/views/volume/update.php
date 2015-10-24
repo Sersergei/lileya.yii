@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Посмотреть все', 'url'=>array('index')),
-	array('label'=>'Создать', 'url'=>array('create')),
-	array('label'=>'Посмотреть', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Менеджер', 'url'=>array('admin')),
+	array('label'=>'РџРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ', 'url'=>array('index')),
+	array('label'=>'РЎРѕР·РґР°С‚СЊ', 'url'=>array('create')),
+	array('label'=>'РџРѕСЃРјРѕС‚СЂРµС‚СЊ', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'РњРµРЅРµРґР¶РµСЂ', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Изменить размер <?php echo $model->id; ?></h1>
+<h1>РР·РјРµРЅРёС‚СЊ СЂР°Р·РјРµСЂ <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

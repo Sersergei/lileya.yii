@@ -1,3 +1,4 @@
 /assets/*
 /.idea/*
-/protected/runtime/*
+/protected/runtime/application.log
+/productimages/*
