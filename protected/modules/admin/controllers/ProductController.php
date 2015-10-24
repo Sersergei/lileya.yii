@@ -91,10 +91,15 @@ class ProductController extends Controller
 
 		if(isset($_POST['Product']))
 		{
-			if
+
+
 			$model->attributes=$_POST['Product'];
+			if(isset($_POST['Product']['image']))
+				$img=CUploadedFile::getInstance($model, 'image');
+				if(!$img=="")
 			$model->image = CUploadedFile::getInstance($model, 'image');
 			if($model->save()){
+				if(!$img=="")
 				$model->image->saveAs('productimages/' . $model->image);
 				$this->redirect(array('view','id'=>$model->id));
 			}
