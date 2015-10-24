@@ -40,8 +40,16 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'product_id',
-		'volume_id',
+		array(
+			'name'=>'product_id',
+			'value'=>'$data->product->title',
+			'sortable'=>true,
+		),
+		array(
+			'name'=>'volume_id',
+			'value'=>'$data->volume->name',
+			'sortable'=>true,
+		),
 		'count_product',
 		array(
 			'class'=>'CButtonColumn',

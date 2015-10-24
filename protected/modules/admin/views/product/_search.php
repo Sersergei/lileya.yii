@@ -18,17 +18,17 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'category_id'); ?>
-		<?php echo $form->textField($model,'category_id'); ?>
+		<?php echo $form->textField($model,'category'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'subcategory_id'); ?>
-		<?php echo $form->textField($model,'subcategory_id'); ?>
+		<?php echo $form->textField($model,'subcategory'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'style_id'); ?>
-		<?php echo $form->textField($model,'style_id'); ?>
+		<?php echo $form->textField($model,'style'); ?>
 	</div>
 
 	<div class="row">

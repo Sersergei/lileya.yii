@@ -1,15 +1,15 @@
 <?php
-/* @var $this ZakazController */
-/* @var $model Zakaz */
+/* @var $this DostavkaController */
+/* @var $model Dostavka */
 
 $this->breadcrumbs=array(
-	'Zakazs'=>array('index'),
+	'Dostavkas'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'œÓÒÏÓÚÂÚ¸ ‚ÒÂ', 'url'=>array('index')),
-	array('label'=>'—ÓÁ‰‡Ú¸', 'url'=>array('create')),
+	array('label'=>'–ü—Ä–æ—Å–º–æ—Ç—Ä–µ—Ç—å –≤—Å–µ Dostavka', 'url'=>array('index')),
+	array('label'=>'–°–æ–∑–¥–∞—Ç—å Dostavka', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#zakaz-grid').yiiGridView('update', {
+	$('#dostavka-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Zakazs</h1>
+<h1>–ú–µ–Ω–µ–¥–∂–µ—ÄDostavkas</h1>
 
 
 
@@ -38,32 +38,13 @@ $('.search-form form').submit(function(){
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'zakaz-grid',
+	'id'=>'dostavka-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		array(
-			'name'=>'user_id',
-			'value'=>'$data->user->username',
-			'sortable'=>true,
-		),
-		array(
-			'name'=>'status_id',
-			'value'=>'$data->status->title',
-			'sortable'=>true,
-		),
-		array(
-			'name'=>'dostavka_id',
-			'value'=>'$data->dostavka->title',
-			'sortable'=>true,
-		),
-
-		array(
-			'name'=>'oplata_id',
-			'value'=>'$data->dostavka->title',
-			'sortable'=>true,
-		),
+		'title',
+		'description',
 		array(
 			'class'=>'CButtonColumn',
 		),

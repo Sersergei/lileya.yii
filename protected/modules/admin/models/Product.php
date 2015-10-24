@@ -110,9 +110,10 @@ class Product extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('category_id',$this->category_id);
-		$criteria->compare('subcategory_id',$this->subcategory_id);
-		$criteria->compare('style_id',$this->style_id);
+		$criteria->with=array('category','subcategory','style'); // жадная загрузка
+		$criteria->compare('category.name',$this->category_id);
+		$criteria->compare('subcategory.name',$this->subcategory_id);
+		$criteria->compare('style.name',$this->style_id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('path',$this->path,true);

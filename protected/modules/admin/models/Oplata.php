@@ -1,22 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "sklad".
+ * This is the model class for table "oplata".
  *
- * The followings are the available columns in table 'sklad':
+ * The followings are the available columns in table 'oplata':
  * @property integer $id
- * @property integer $product_id
- * @property integer $volume_id
- * @property integer $count_product
+ * @property string $title
  */
-class Sklad extends CActiveRecord
+class Oplata extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'sklad';
+		return 'oplata';
 	}
 
 	/**
@@ -27,11 +25,11 @@ class Sklad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('product_id, volume_id, count_product', 'required'),
-			array('product_id, volume_id, count_product', 'numerical', 'integerOnly'=>true),
+			array('title', 'required'),
+			array('title', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, product_id, volume_id, count_product', 'safe', 'on'=>'search'),
+			array('id, title', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -43,8 +41,6 @@ class Sklad extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-        'product'=>array(self::BELONGS_TO,'Product','product_id'),
-        'volume'=>array(self::BELONGS_TO,'Volume','volume_id'),
 		);
 	}
 
@@ -55,9 +51,7 @@ class Sklad extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'product_id' => 'Продукт',
-			'volume_id' => 'Размер',
-			'count_product' => 'Количество',
+			'title' => 'Title',
 		);
 	}
 
@@ -80,10 +74,7 @@ class Sklad extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->with=array('product','volume'); // жадная загрузка
-		$criteria->compare('product.title',$this->product_id);
-		$criteria->compare('volume.name',$this->volume_id);
-		$criteria->compare('count_product',$this->count_product);
+		$criteria->compare('title',$this->title,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -94,24 +85,10 @@ class Sklad extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Sklad the static model class
+	 * @return Oplata the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-        public static function findPosition($product=NULL,$volume=NULL){
-        $criteria= new CDbCriteria;
-        if(!is_null($product)){
-             $criteria->compare('product_id', $product);
-        }
-
-        if(!is_null($volume)){
-            $criteria->compare('volume_id', $volume);
-        }
-        $sklad=Sklad::model()->findAll($criteria);
-        return $sklad;
-        
-        
-    }
 }

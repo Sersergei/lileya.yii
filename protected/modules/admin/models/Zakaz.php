@@ -45,6 +45,10 @@ class Zakaz extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user'=>array(self::BELONGS_TO,'User','user_id'),
+			'status'=>array(self::BELONGS_TO,'Status','status_id'),
+			'dostavka'=>array(self::BELONGS_TO,'Dostavka','dostavka_id'),
+			'oplata'=>array(self::BELONGS_TO,'Oplata','oplata_id'),
 		);
 	}
 
@@ -81,10 +85,11 @@ class Zakaz extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('status_id',$this->status_id);
-		$criteria->compare('dostavka_id',$this->dostavka_id);
-		$criteria->compare('oplata_id',$this->oplata_id);
+		$criteria->with=array('user','status','dostavka','oplata'); // жадная загрузка
+		$criteria->compare('user.username',$this->user_id);
+		$criteria->compare('status.title',$this->status_id);
+		$criteria->compare('dostavka.title',$this->dostavka_id);
+		$criteria->compare('oplata',$this->oplata_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

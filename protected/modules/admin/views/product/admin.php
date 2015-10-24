@@ -38,9 +38,24 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'category_id',
-		'subcategory_id',
-		'style_id',
+		array(
+			'name'=>'category_id',
+			'value'=>'$data->category->name',
+			'sortable'=>true,
+		),
+		array(
+			'name'=>'subcategory_id',
+			'value'=>'$data->subcategory->name',
+			'sortable'=>true,
+		),
+		array(
+			'name'=>'style_id',
+			'value'=>'$data->style->name',
+			'sortable'=>true,
+		),
+		//'category_id',
+		//'subcategory_id',
+		//'style_id',
 		'title',
 		'image',
 		/*
