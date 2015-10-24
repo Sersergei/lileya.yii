@@ -27,8 +27,8 @@ $("img.jqzoom").jqueryzoom({
 <?php endif; ?>
 
 	<div id="fotoslide"><span class="tozoom">
-            <img src="<?php echo Yii::app()->request->baseUrl.'/images/'.$models->image; ?>"
-                 class="jqzoom" alt="<?php echo Yii::app()->request->baseUrl.'/images/'.$models->image; ?>"
+            <img src="<?php echo Yii::app()->request->baseUrl.'/productimages/'.$models->image; ?>"
+                 class="jqzoom" alt="<?php echo Yii::app()->request->baseUrl.'/productimages/'.$models->image; ?>"
                  class="large" /></span></div>
 	<div id="describe"> 
 	<h3><?php echo $models->title;?></h3>
